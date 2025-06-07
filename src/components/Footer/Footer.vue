@@ -2,19 +2,38 @@
   <footer class="app-footer">
     <div class="footer-content-wrapper">
       <div class="footer-brand">
-        <img src="../../assets/Images/logofooter.svg" alt="Omlah Exchange Co. Logo" class="company-logo" />
-        <button class="cta-button">ابدأ الآن -</button>
+        <img
+          src="../../assets/Images/logofooter.svg"
+          alt="Omlah Exchange Co. Logo"
+          class="company-logo"
+        />
       </div>
 
       <div class="footer-column">
         <h3>اتصل بنا</h3>
         <ul>
-          <li><i class="bi bi-telephone-inbound"></i><span>966-11-234-5678</span></li>
-          <li><i class="bi bi-envelope-check-fill"></i> <span>info@omlah.sa</span></li>
+          <li>
+            <i class="bi bi-telephone-inbound"></i><span>966-11-234-5678</span>
+          </li>
+          <li>
+            <i class="bi bi-envelope-check-fill"></i> <span>info@omlah.sa</span>
+          </li>
           <li class="social-icons">
-            <a href="#" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://x.com/omlah2030" target="_blank" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-            <a href="https://www.linkedin.com/company/omlah-exchange-co/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" target="_blank" aria-label="Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a
+              href="https://x.com/omlah2030"
+              target="_blank"
+              aria-label="Twitter"
+              ><i class="bi bi-twitter"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/omlah-exchange-co/"
+              target="_blank"
+              aria-label="LinkedIn"
+              ><i class="bi bi-linkedin"></i
+            ></a>
           </li>
         </ul>
       </div>
@@ -22,21 +41,19 @@
       <div class="footer-column">
         <h3>روابط سريعة</h3>
         <ul>
-          <li><a href="#">الرئيسية</a></li>
-          <li><a href="#">خدماتنا</a></li>
-          <li><a href="#">من نحن</a></li>
+          <li><a href="#main">الرئيسية</a></li>
+          <li><a href="#servie">خدماتنا</a></li>
+          <li><a href="#howAreWe">من نحن</a></li>
           <li><a href="#">العمولات</a></li>
           <li><a href="#">تطبيق الجوال</a></li>
-          <li><a href="#">الأسئلة الشائعة</a></li>
-          <li><a href="#">تواصل معنا</a></li>
+          <li><a href="#FAQ">الأسئلة الشائعة</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
         </ul>
       </div>
 
       <div class="footer-column">
         <h3>المساعدة والدعم</h3>
         <ul>
-          <li><a href="#">تسجيل حساب جديد للعملاء</a></li>
-          <li><a href="#">تسجيل حساب جديد للأعمال</a></li>
           <li><a href="#">الشروط و الأحكام</a></li>
           <li><a href="#">سياسة الخصوصية</a></li>
         </ul>
@@ -44,19 +61,24 @@
     </div>
   </footer>
 
-  <a href="##" target="_blank" rel="noopener noreferrer" class="whatsapp-fixed-button" aria-label="WhatsApp Chat">
+  <a
+    href="##"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-fixed-button"
+    aria-label="WhatsApp Chat"
+  >
     <i class="bi bi-whatsapp"></i>
   </a>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style scoped>
 .app-footer {
   direction: rtl;
-  font-family: 'Inter', sans-serif;
-  background-color: #2c1969; 
+  font-family: "Inter", sans-serif;
+  background-color: #2c1969;
   color: #fff;
   padding: 60px var(--app-padding-x) 40px;
   display: flex;
@@ -66,24 +88,23 @@
 
 .footer-content-wrapper {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: space-between;
   max-width: var(--app-max-width);
   width: 100%;
-  gap: 30px; 
+  gap: 30px;
 }
 
 .footer-brand {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
+  align-items: flex-start;
   flex: 1 1 250px;
   margin-bottom: 20px;
-  
 }
 
 .company-logo {
-width: 45%;
+  width: 45%;
   height: auto;
   margin-bottom: 15px;
 }
@@ -93,22 +114,6 @@ width: 45%;
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 20px;
-}
-
-.cta-button {
-  background-color: #ffff; 
-  color: black;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 25px;
-  font-size: 16px;
-  font-weight: 900;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #089fd3;
 }
 
 .footer-column {
@@ -125,13 +130,13 @@ width: 45%;
 }
 
 .footer-column h3::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 40px; 
+  width: 40px;
   height: 3px;
-  background-color: #0AAFE1;
+  background-color: #0aafe1;
   border-radius: 2px;
 }
 
@@ -144,7 +149,7 @@ width: 45%;
 .footer-column ul li {
   margin-bottom: 12px;
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .footer-column ul li a {
@@ -155,13 +160,13 @@ width: 45%;
 }
 
 .footer-column ul li a:hover {
-  color: #0AAFE1;
+  color: #0aafe1;
 }
 
 .footer-column ul li i {
-  margin-left: 10px; 
+  margin-left: 10px;
   font-size: 16px;
-  color: #0AAFE1;
+  color: #0aafe1;
 }
 
 .social-icons {
@@ -177,14 +182,14 @@ width: 45%;
 }
 
 .social-icons a:hover {
-  color: #0AAFE1;
+  color: #0aafe1;
 }
 
 .whatsapp-fixed-button {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: #25d366; 
+  background-color: #25d366;
   color: #fff;
   border-radius: 50%;
   width: 60px;
@@ -194,9 +199,9 @@ width: 45%;
   align-items: center;
   font-size: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  z-index: 1000; 
+  z-index: 1000;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .whatsapp-fixed-button:hover {
@@ -216,7 +221,7 @@ width: 45%;
   }
 
   .footer-column {
-    flex: 1 1 100%; 
+    flex: 1 1 100%;
     margin-bottom: 30px;
   }
 
@@ -225,7 +230,7 @@ width: 45%;
   }
 
   .footer-column h3::after {
-    right: 50%; 
+    right: 50%;
     transform: translateX(50%);
   }
 
@@ -233,7 +238,7 @@ width: 45%;
     align-items: center;
   }
   .footer-column ul li {
-    justify-content: center; 
+    justify-content: center;
   }
 
   .social-icons {
@@ -260,11 +265,6 @@ width: 45%;
 
   .company-name {
     font-size: 16px;
-  }
-
-  .cta-button {
-    padding: 10px 20px;
-    font-size: 14px;
   }
 
   .footer-column h3 {

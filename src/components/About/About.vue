@@ -3,7 +3,8 @@
     <div class="container">
       <h2 class="section-title mb-2">كيف تبدأ؟</h2>
       <p class="section-subtitle mb-5">
-        تعرّف على خطوات خدمة صرف العملات لدينا — من الزيارة وحتى استلام العملة بكل سهولة وأمان.
+        تعرّف على خطوات خدمة صرف العملات لدينا — من الزيارة وحتى استلام العملة
+        بكل سهولة وأمان.
       </p>
       <div class="row justify-content-center">
         <!-- Step 1 -->
@@ -15,14 +16,17 @@
             <h5 class="step-title">زيارة الفرع</h5>
           </div>
         </div>
-        
+
         <!-- Step 2 -->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="step-item">
             <div class="step-icon">
-              <img src="../../assets/Images/deliver.png" alt="استلام التسميرة" />
+              <img
+                src="../../assets/Images/deliver.png"
+                alt="استلام التسميرة"
+              />
             </div>
-            <h5 class="step-title">استلام التسميرة</h5>
+            <h5 class="step-title">استلام التسعيرة</h5>
           </div>
         </div>
 
@@ -30,7 +34,10 @@
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="step-item">
             <div class="step-icon">
-              <img src="../../assets/Images/reserve.png" alt="تسليم واستلام العملة" />
+              <img
+                src="../../assets/Images/reserve.png"
+                alt="تسليم واستلام العملة"
+              />
             </div>
             <h5 class="step-title">تسليم واستلام العملة</h5>
           </div>
@@ -87,7 +94,6 @@
   z-index: 5;
 }
 
-
 .step-icon img {
   max-width: 70%;
   height: auto;
@@ -110,11 +116,10 @@
     right: -50%;
     width: 100%;
     height: 2px;
-    border-top: 2px dashed #0f2d87; 
+    border-top: 2px dashed #0f2d87;
     transform: translateY(-50%);
     z-index: -1;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -133,10 +138,8 @@
 }
 </style>
 
-
 <script>
 export default {
   name: "AppAbout",
 };
-
 </script>

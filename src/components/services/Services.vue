@@ -1,5 +1,5 @@
 <template>
-  <section class="services py-5">
+  <section class="services py-5" id="servie">
     <div class="container">
       <h2 class="text-center mb-2 section-title">خدماتنا</h2>
 
@@ -60,7 +60,7 @@ export default {
 
 <style scoped>
 .services {
-  background-color: #f9fafd; 
+  background-color: #f9fafd;
 }
 
 .section-title {
@@ -107,8 +107,8 @@ export default {
   .service-card .service-number {
     font-size: 2.8rem;
     top: 15px;
-    right: unset; 
-    left: 50%; 
+    right: unset;
+    left: 50%;
     transform: translateX(-50%);
   }
 

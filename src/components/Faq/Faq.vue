@@ -1,13 +1,23 @@
 <template>
-  <section class="faq-section">
+  <section class="faq-section" id="FAQ">
     <div class="faq-content-wrapper">
       <h2 class="section-title">الأسئلة الشائعة</h2>
 
       <div class="accordion-container">
-        <div v-for="(item, index) in faqItems" :key="index" class="accordion-item">
-          <button @click="toggleAccordion(index)" :aria-expanded="item.isOpen" class="accordion-header">
+        <div
+          v-for="(item, index) in faqItems"
+          :key="index"
+          class="accordion-item"
+        >
+          <button
+            @click="toggleAccordion(index)"
+            :aria-expanded="item.isOpen"
+            class="accordion-header"
+          >
             <span class="question-text">{{ item.question }}</span>
-            <i :class="['bi', item.isOpen ? 'bi-chevron-up' : 'bi-chevron-down']"></i>
+            <i
+              :class="['bi', item.isOpen ? 'bi-chevron-up' : 'bi-chevron-down']"
+            ></i>
           </button>
           <Transition name="accordion">
             <div v-if="item.isOpen" class="accordion-body">
@@ -21,33 +31,38 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 const faqItems = ref([
   {
-    question: 'ما هو الحد الأقصى لمبلغ التحويل؟',
-    answer: ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.',
-    isOpen: false
+    question: "ما هو الحد الأقصى لمبلغ التحويل؟",
+    answer:
+      " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.",
+    isOpen: false,
   },
   {
-    question: 'كم يستغرق إتمام المعاملة؟',
-    answer: ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.',
-    isOpen: false
+    question: "كم يستغرق إتمام المعاملة؟",
+    answer:
+      " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.",
+    isOpen: false,
   },
   {
-    question: 'ما هي المستندات المطلوبة؟',
-    answer: ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.',
-    isOpen: false
+    question: "ما هي المستندات المطلوبة؟",
+    answer:
+      " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.",
+    isOpen: false,
   },
   {
-    question: 'هل تقدمون خدمات للشركات؟',
-    answer: ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.',
-    isOpen: false
+    question: "هل تقدمون خدمات للشركات؟",
+    answer:
+      " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.",
+    isOpen: false,
   },
   {
-    question: 'ما هي ساعات العمل؟',
-    answer: ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.',
-    isOpen: false
-  }
+    question: "ما هي ساعات العمل؟",
+    answer:
+      " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rerum iste at nihil dolorum sequi, iusto, ab totam accusantium odit maiores quia. Iusto ut excepturi recusandae? At aliquam tempore tempora culpa magnam, eligendi animi dolorum vero veritatis, nihil nesciunt eveniet optio amet facilis, laudantium eum? Modi iusto aliquam vel mollitia.",
+    isOpen: false,
+  },
 ]);
 
 const toggleAccordion = (index) => {
@@ -57,8 +72,8 @@ const toggleAccordion = (index) => {
 
 <style scoped>
 .faq-section {
-  direction: rtl; 
-  font-family: 'Inter', sans-serif; 
+  direction: rtl;
+  font-family: "Inter", sans-serif;
   background-color: #f0f2f5;
   padding: 80px var(--app-padding-x);
   display: flex;
@@ -69,7 +84,7 @@ const toggleAccordion = (index) => {
 .faq-content-wrapper {
   max-width: var(--app-max-width);
   width: 100%;
-  background-color: #fff; 
+  background-color: #fff;
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -85,7 +100,7 @@ const toggleAccordion = (index) => {
 
 .accordion-container {
   width: 100%;
-  max-width: 800px; 
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -95,7 +110,7 @@ const toggleAccordion = (index) => {
 }
 
 .accordion-item:last-child {
-  border-bottom: none; 
+  border-bottom: none;
   margin-bottom: 0;
 }
 
@@ -105,7 +120,7 @@ const toggleAccordion = (index) => {
   cursor: pointer;
   padding: 20px 25px;
   width: 100%;
-  text-align: right; 
+  text-align: right;
   border: none;
   outline: none;
   display: flex;
@@ -114,7 +129,7 @@ const toggleAccordion = (index) => {
   font-size: 18px;
   font-weight: 600;
   transition: background-color 0.3s ease;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .accordion-header:hover {
@@ -122,21 +137,21 @@ const toggleAccordion = (index) => {
 }
 
 .accordion-header i {
-  margin-right: 15px; 
+  margin-right: 15px;
   transition: transform 0.3s ease;
-  color: #0AAFE1; 
-  font-size: 1.2em; 
+  color: #0aafe1;
+  font-size: 1.2em;
 }
 
 .accordion-header[aria-expanded="true"] i {
-  transform: rotate(180deg); 
+  transform: rotate(180deg);
 }
 
 .accordion-body {
   padding: 15px 25px 20px;
   background-color: #fdfdfd;
   border-top: 1px solid #eee;
-  border-radius: 0 0 10px 10px; 
+  border-radius: 0 0 10px 10px;
 }
 
 .accordion-body p {
@@ -144,14 +159,13 @@ const toggleAccordion = (index) => {
   font-size: 16px;
   line-height: 1.7;
   color: #555;
-  text-align: right; 
+  text-align: right;
 }
-
 
 .accordion-enter-active,
 .accordion-leave-active {
   transition: all 0.3s ease-out;
-  max-height: 500px; 
+  max-height: 500px;
   overflow: hidden;
 }
 

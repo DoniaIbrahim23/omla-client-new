@@ -1,11 +1,12 @@
 <template>
-  <section class="currency-converter-section">
+  <section class="currency-converter-section" id="exchange">
     <div class="converter-header">
       <h2 class="title">محول العملات في عملة</h2>
       <p class="subtitle">تحقق من أسعار صرف العملات الأجنبية المباشرة</p>
       <div class="separator"></div>
       <h3 class="action-title">
-        تبديل <i class="bi bi-currency-exchange"></i> </h3>
+        تبديل <i class="bi bi-currency-exchange"></i>
+      </h3>
     </div>
 
     <div class="converter-content-wrapper">
@@ -55,6 +56,7 @@
               placeholder="0"
               min="0"
               class="currency-input"
+              style="width: 0.5rem"
             />
             <div class="currency-selector-display">
               <img
@@ -110,6 +112,7 @@
               placeholder="0"
               min="0"
               class="currency-input"
+              style="width: 0.5rem"
             />
             <div class="currency-selector-display">
               <img
@@ -174,19 +177,19 @@ export default {
   name: "CurrencyConverterSection",
   data() {
     return {
-      fromAmount: 100, // قيمة ابتدائية لتظهر في الكارد
+      fromAmount: 100,
       toAmount: 0,
       fromCurrency: "SAR",
       toCurrency: "USD",
       exchangeRate: 0,
-      feePercentage: 0.01, // 1% fee
-      taxPercentage: 0.005, // 0.5% tax
+      feePercentage: 0.01,
+      taxPercentage: 0.005,
       currencies: [
         {
           code: "SAR",
           name: "ريال سعودي",
           flag: "🇸🇦",
-          imageUrl: "https://flagcdn.com/24x18/sa.png", // استخدام flags.fmcdn.com
+          imageUrl: "https://flagcdn.com/24x18/sa.png",
         },
         {
           code: "USD",
@@ -249,10 +252,10 @@ export default {
           imageUrl: "https://flagcdn.com/24x18/jp.png",
         },
       ],
-      // Dummy exchange rates (SAR based)
+
       dummyExchangeRates: {
-        SAR_USD: 0.2667, // 1 SAR = 0.2667 USD
-        USD_SAR: 3.75, // 1 USD = 3.75 SAR
+        SAR_USD: 0.2667,
+        USD_SAR: 3.75,
         SAR_EUR: 0.245,
         EUR_SAR: 4.08,
         SAR_GBP: 0.21,
@@ -453,7 +456,7 @@ export default {
 .converter-content-wrapper {
   display: flex;
   justify-content: center;
-  align-items: stretch; 
+  align-items: stretch;
   gap: 40px;
   max-width: 1200px;
   width: 100%;
@@ -461,8 +464,8 @@ export default {
 
 .how-it-works-card {
   flex: 1;
-  background-color: #ffffff; 
-  color: #333; 
+  background-color: #ffffff;
+  color: #333;
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -478,7 +481,7 @@ export default {
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 30px;
-  color: #2c1969; 
+  color: #2c1969;
 }
 
 .how-it-works-card .steps-list {
@@ -490,19 +493,19 @@ export default {
 }
 
 .how-it-works-card .step-item {
-  background-color: #f5f5f5; 
+  background-color: #f5f5f5;
   padding: 10px 15px;
   border-radius: 8px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  color: #444; 
+  color: #444;
 }
 
 .how-it-works-card .start-button {
-  background-color: #0aafe1; 
-  color: #fff; 
+  background-color: #0aafe1;
+  color: #fff;
   border: none;
   padding: 12px 25px;
   border-radius: 30px;
@@ -520,8 +523,8 @@ export default {
 }
 
 .how-it-works-card .start-button:hover {
-  background-color: #089fd3; 
-  color: #fff; 
+  background-color: #089fd3;
+  color: #fff;
 }
 
 .how-it-works-card .start-button i {
@@ -555,11 +558,7 @@ export default {
 
 .currency-input-container {
   display: flex;
-  background-image: linear-gradient(
-    to right,
-    #4148b4,
-    #2c1969
-  );
+  background-image: linear-gradient(to right, #4148b4, #2c1969);
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -596,11 +595,7 @@ export default {
   color: #fff;
   font-size: 16px;
   font-weight: 600;
-  background-image: linear-gradient(
-    to right,
-    #2c1969,
-    #4148b4
-  );
+  background-image: linear-gradient(to right, #2c1969, #4148b4);
   border-radius: 10px 0 0 10px;
   white-space: nowrap;
   z-index: 2;

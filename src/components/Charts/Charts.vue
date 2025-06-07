@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import { Line as LineChart } from 'vue-chartjs';
+import { Line as LineChart } from "vue-chartjs";
 import {
   Chart as ChartJS,
   Title,
@@ -74,8 +74,8 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
-  Filler 
-} from 'chart.js';
+  Filler,
+} from "chart.js";
 
 ChartJS.register(
   Title,
@@ -89,63 +89,178 @@ ChartJS.register(
 );
 
 const ALL_CURRENCIES = [
-  { code: "SAR", name: "ريال سعودي", imageUrl: "https://placehold.co/24x16/007A3D/FFFFFF?text=SA" },
-  { code: "USD", name: "دولار أمريكي", imageUrl: "https://placehold.co/24x16/3C3B6E/FFFFFF?text=US" },
-  { code: "EUR", name: "يورو", imageUrl: "https://placehold.co/24x16/003399/FFD700?text=EU" },
-  { code: "GBP", name: "جنيه استرليني", imageUrl: "https://placehold.co/24x16/00247D/FFFFFF?text=GB" },
-  { code: "CHF", name: "فرنك سويسري", imageUrl: "https://placehold.co/24x16/D52B1E/FFFFFF?text=CH" },
-  { code: "CAD", name: "دولار كندي", imageUrl: "https://placehold.co/24x16/FF0000/FFFFFF?text=CA" },
-  { code: "AED", name: "درهم إماراتي", imageUrl: "https://placehold.co/24x16/007321/FFFFFF?text=AE" },
-  { code: "QAR", name: "ريال قطري", imageUrl: "https://placehold.co/24x16/800000/FFFFFF?text=QA" },
-  { code: "OMR", name: "ريال عماني", imageUrl: "https://placehold.co/24x16/DC143C/FFFFFF?text=OM" },
-  { code: "KWD", name: "دينار كويتي", imageUrl: "https://placehold.co/24x16/007A3D/FFFFFF?text=KW" },
-  { code: "JPY", name: "ين ياباني", imageUrl: "https://placehold.co/24x16/BC002D/FFFFFF?text=JP" },
+  {
+    code: "SAR",
+    name: "ريال سعودي",
+    imageUrl: "https://placehold.co/24x16/007A3D/FFFFFF?text=SA",
+  },
+  {
+    code: "USD",
+    name: "دولار أمريكي",
+    imageUrl: "https://placehold.co/24x16/3C3B6E/FFFFFF?text=US",
+  },
+  {
+    code: "EUR",
+    name: "يورو",
+    imageUrl: "https://placehold.co/24x16/003399/FFD700?text=EU",
+  },
+  {
+    code: "GBP",
+    name: "جنيه استرليني",
+    imageUrl: "https://placehold.co/24x16/00247D/FFFFFF?text=GB",
+  },
+  {
+    code: "CHF",
+    name: "فرنك سويسري",
+    imageUrl: "https://placehold.co/24x16/D52B1E/FFFFFF?text=CH",
+  },
+  {
+    code: "CAD",
+    name: "دولار كندي",
+    imageUrl: "https://placehold.co/24x16/FF0000/FFFFFF?text=CA",
+  },
+  {
+    code: "AED",
+    name: "درهم إماراتي",
+    imageUrl: "https://placehold.co/24x16/007321/FFFFFF?text=AE",
+  },
+  {
+    code: "QAR",
+    name: "ريال قطري",
+    imageUrl: "https://placehold.co/24x16/800000/FFFFFF?text=QA",
+  },
+  {
+    code: "OMR",
+    name: "ريال عماني",
+    imageUrl: "https://placehold.co/24x16/DC143C/FFFFFF?text=OM",
+  },
+  {
+    code: "KWD",
+    name: "دينار كويتي",
+    imageUrl: "https://placehold.co/24x16/007A3D/FFFFFF?text=KW",
+  },
+  {
+    code: "JPY",
+    name: "ين ياباني",
+    imageUrl: "https://placehold.co/24x16/BC002D/FFFFFF?text=JP",
+  },
 ];
 
 const DUMMY_HISTORICAL_RATES = {
-  'SAR_USD': {
-    '1_day': Array.from({ length: 24 }, (_, i) => 0.2667 + (Math.random() - 0.5) * 0.0002).map(val => parseFloat(val.toFixed(4))),
-    '7_days': Array.from({ length: 7 }, (_, i) => 0.2667 + (Math.random() - 0.5) * 0.0005).map(val => parseFloat(val.toFixed(4))),
-    '30_days': Array.from({ length: 30 }, (_, i) => 0.2667 + (Math.random() - 0.5) * 0.0005).map(val => parseFloat(val.toFixed(4))),
-    '90_days': Array.from({ length: 90 }, (_, i) => 0.2667 + (Math.random() - 0.5) * 0.001).map(val => parseFloat(val.toFixed(4))),
+  SAR_USD: {
+    "1_day": Array.from(
+      { length: 24 },
+      (_, i) => 0.2667 + (Math.random() - 0.5) * 0.0002
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "7_days": Array.from(
+      { length: 7 },
+      (_, i) => 0.2667 + (Math.random() - 0.5) * 0.0005
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "30_days": Array.from(
+      { length: 30 },
+      (_, i) => 0.2667 + (Math.random() - 0.5) * 0.0005
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "90_days": Array.from(
+      { length: 90 },
+      (_, i) => 0.2667 + (Math.random() - 0.5) * 0.001
+    ).map((val) => parseFloat(val.toFixed(4))),
   },
-  'USD_SAR': {
-    '1_day': Array.from({ length: 24 }, (_, i) => 3.75 + (Math.random() - 0.5) * 0.005).map(val => parseFloat(val.toFixed(4))),
-    '7_days': Array.from({ length: 7 }, (_, i) => 3.75 + (Math.random() - 0.5) * 0.008).map(val => parseFloat(val.toFixed(4))),
-    '30_days': Array.from({ length: 30 }, (_, i) => 3.75 + (Math.random() - 0.5) * 0.008).map(val => parseFloat(val.toFixed(4))),
-    '90_days': Array.from({ length: 90 }, (_, i) => 3.75 + (Math.random() - 0.5) * 0.015).map(val => parseFloat(val.toFixed(4))),
+  USD_SAR: {
+    "1_day": Array.from(
+      { length: 24 },
+      (_, i) => 3.75 + (Math.random() - 0.5) * 0.005
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "7_days": Array.from(
+      { length: 7 },
+      (_, i) => 3.75 + (Math.random() - 0.5) * 0.008
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "30_days": Array.from(
+      { length: 30 },
+      (_, i) => 3.75 + (Math.random() - 0.5) * 0.008
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "90_days": Array.from(
+      { length: 90 },
+      (_, i) => 3.75 + (Math.random() - 0.5) * 0.015
+    ).map((val) => parseFloat(val.toFixed(4))),
   },
-  'SAR_EUR': {
-    '1_day': Array.from({ length: 24 }, (_, i) => 0.245 + (Math.random() - 0.5) * 0.0003).map(val => parseFloat(val.toFixed(4))),
-    '7_days': Array.from({ length: 7 }, (_, i) => 0.245 + (Math.random() - 0.5) * 0.0007).map(val => parseFloat(val.toFixed(4))),
-    '30_days': Array.from({ length: 30 }, (_, i) => 0.245 + (Math.random() - 0.5) * 0.0007).map(val => parseFloat(val.toFixed(4))),
-    '90_days': Array.from({ length: 90 }, (_, i) => 0.245 + (Math.random() - 0.5) * 0.0015).map(val => parseFloat(val.toFixed(4))),
+  SAR_EUR: {
+    "1_day": Array.from(
+      { length: 24 },
+      (_, i) => 0.245 + (Math.random() - 0.5) * 0.0003
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "7_days": Array.from(
+      { length: 7 },
+      (_, i) => 0.245 + (Math.random() - 0.5) * 0.0007
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "30_days": Array.from(
+      { length: 30 },
+      (_, i) => 0.245 + (Math.random() - 0.5) * 0.0007
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "90_days": Array.from(
+      { length: 90 },
+      (_, i) => 0.245 + (Math.random() - 0.5) * 0.0015
+    ).map((val) => parseFloat(val.toFixed(4))),
   },
-  'EUR_SAR': {
-    '1_day': Array.from({ length: 24 }, (_, i) => 4.08 + (Math.random() - 0.5) * 0.008).map(val => parseFloat(val.toFixed(4))),
-    '7_days': Array.from({ length: 7 }, (_, i) => 4.08 + (Math.random() - 0.5) * 0.01).map(val => parseFloat(val.toFixed(4))),
-    '30_days': Array.from({ length: 30 }, (_, i) => 4.08 + (Math.random() - 0.5) * 0.01).map(val => parseFloat(val.toFixed(4))),
-    '90_days': Array.from({ length: 90 }, (_, i) => 4.08 + (Math.random() - 0.5) * 0.02).map(val => parseFloat(val.toFixed(4))),
+  EUR_SAR: {
+    "1_day": Array.from(
+      { length: 24 },
+      (_, i) => 4.08 + (Math.random() - 0.5) * 0.008
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "7_days": Array.from(
+      { length: 7 },
+      (_, i) => 4.08 + (Math.random() - 0.5) * 0.01
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "30_days": Array.from(
+      { length: 30 },
+      (_, i) => 4.08 + (Math.random() - 0.5) * 0.01
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "90_days": Array.from(
+      { length: 90 },
+      (_, i) => 4.08 + (Math.random() - 0.5) * 0.02
+    ).map((val) => parseFloat(val.toFixed(4))),
   },
-  'USD_EUR': {
-    '1_day': Array.from({ length: 24 }, (_, i) => 0.92 + (Math.random() - 0.5) * 0.003).map(val => parseFloat(val.toFixed(4))),
-    '7_days': Array.from({ length: 7 }, (_, i) => 0.92 + (Math.random() - 0.5) * 0.005).map(val => parseFloat(val.toFixed(4))),
-    '30_days': Array.from({ length: 30 }, (_, i) => 0.92 + (Math.random() - 0.5) * 0.005).map(val => parseFloat(val.toFixed(4))),
-    '90_days': Array.from({ length: 90 }, (_, i) => 0.92 + (Math.random() - 0.5) * 0.008).map(val => parseFloat(val.toFixed(4))),
+  USD_EUR: {
+    "1_day": Array.from(
+      { length: 24 },
+      (_, i) => 0.92 + (Math.random() - 0.5) * 0.003
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "7_days": Array.from(
+      { length: 7 },
+      (_, i) => 0.92 + (Math.random() - 0.5) * 0.005
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "30_days": Array.from(
+      { length: 30 },
+      (_, i) => 0.92 + (Math.random() - 0.5) * 0.005
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "90_days": Array.from(
+      { length: 90 },
+      (_, i) => 0.92 + (Math.random() - 0.5) * 0.008
+    ).map((val) => parseFloat(val.toFixed(4))),
   },
-  'EUR_USD': {
-    '1_day': Array.from({ length: 24 }, (_, i) => 1.087 + (Math.random() - 0.5) * 0.005).map(val => parseFloat(val.toFixed(4))),
-    '7_days': Array.from({ length: 7 }, (_, i) => 1.087 + (Math.random() - 0.5) * 0.007).map(val => parseFloat(val.toFixed(4))),
-    '30_days': Array.from({ length: 30 }, (_, i) => 1.087 + (Math.random() - 0.5) * 0.007).map(val => parseFloat(val.toFixed(4))),
-    '90_days': Array.from({ length: 90 }, (_, i) => 1.087 + (Math.random() - 0.5) * 0.01).map(val => parseFloat(val.toFixed(4))),
+  EUR_USD: {
+    "1_day": Array.from(
+      { length: 24 },
+      (_, i) => 1.087 + (Math.random() - 0.5) * 0.005
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "7_days": Array.from(
+      { length: 7 },
+      (_, i) => 1.087 + (Math.random() - 0.5) * 0.007
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "30_days": Array.from(
+      { length: 30 },
+      (_, i) => 1.087 + (Math.random() - 0.5) * 0.007
+    ).map((val) => parseFloat(val.toFixed(4))),
+    "90_days": Array.from(
+      { length: 90 },
+      (_, i) => 1.087 + (Math.random() - 0.5) * 0.01
+    ).map((val) => parseFloat(val.toFixed(4))),
   },
 };
-
 
 export default {
   name: "ChartSection",
   components: {
-    LineChart, 
+    LineChart,
   },
   data() {
     return {
@@ -172,73 +287,75 @@ export default {
             display: false,
           },
           tooltip: {
-            mode: 'index',
+            mode: "index",
             intersect: false,
             callbacks: {
-                label: function(context) {
-                    let label = context.dataset.label || '';
-                    if (label) {
-                        label += ': ';
-                    }
-                    if (context.parsed.y !== null) {
-                        label += new Intl.NumberFormat('ar-EG', { minimumFractionDigits: 4, maximumFractionDigits: 4 }).format(context.parsed.y);
-                    }
-                    return label;
+              label: function (context) {
+                let label = context.dataset.label || "";
+                if (label) {
+                  label += ": ";
                 }
-            }
+                if (context.parsed.y !== null) {
+                  label += new Intl.NumberFormat("ar-EG", {
+                    minimumFractionDigits: 4,
+                    maximumFractionDigits: 4,
+                  }).format(context.parsed.y);
+                }
+                return label;
+              },
+            },
           },
           legend: {
             display: true,
-            position: 'top',
+            position: "top",
             labels: {
               font: {
-                family: 'Inter, sans-serif',
+                family: "Inter, sans-serif",
                 size: 14,
               },
-              color: '#333',
+              color: "#333",
             },
-            rtl: true, 
-            textDirection: 'rtl',
-          }
+            rtl: true,
+            textDirection: "rtl",
+          },
         },
         scales: {
           x: {
             grid: {
-              display: false, 
+              display: false,
             },
             ticks: {
-              color: '#666',
+              color: "#666",
               font: {
-                family: 'Inter, sans-serif',
+                family: "Inter, sans-serif",
               },
             },
           },
           y: {
             grid: {
-              color: '#e7e7e7', 
+              color: "#e7e7e7",
             },
             ticks: {
               callback: function (value) {
-                return value.toFixed(4); 
+                return value.toFixed(4);
               },
-              color: '#666',
+              color: "#666",
               font: {
-                family: 'Inter, sans-serif',
+                family: "Inter, sans-serif",
               },
             },
           },
         },
         animation: {
-            duration: 750, 
-            easing: 'easeInOutQuad'
+          duration: 750,
+          easing: "easeInOutQuad",
         },
-    
       },
       chartKey: 0,
     };
   },
   mounted() {
-    this.updateChartData(); 
+    this.updateChartData();
   },
   methods: {
     getSelectedCurrencyFlagUrl(code) {
@@ -251,7 +368,7 @@ export default {
     },
     selectTimeRange(range) {
       this.selectedTimeRange = range;
-      this.updateChartData(); 
+      this.updateChartData();
     },
     generateChartCategories(range) {
       const today = new Date();
@@ -259,80 +376,105 @@ export default {
       let numPoints;
 
       switch (range) {
-        case '1_day':
-          numPoints = 24; 
+        case "1_day":
+          numPoints = 24;
           for (let i = 0; i < numPoints; i++) {
-            categories.push(`${i}:00`); 
+            categories.push(`${i}:00`);
           }
           break;
-        case '7_days':
+        case "7_days":
           numPoints = 7;
           for (let i = 0; i < numPoints; i++) {
             const d = new Date(today);
             d.setDate(today.getDate() - (numPoints - 1 - i));
-            categories.push(d.toLocaleDateString('ar-EG', { month: 'short', day: 'numeric' }));
+            categories.push(
+              d.toLocaleDateString("ar-EG", { month: "short", day: "numeric" })
+            );
           }
           break;
-        case '30_days':
+        case "30_days":
           numPoints = 30;
           for (let i = 0; i < numPoints; i++) {
             const d = new Date(today);
             d.setDate(today.getDate() - (numPoints - 1 - i));
-            categories.push(d.toLocaleDateString('ar-EG', { month: 'short', day: 'numeric' }));
+            categories.push(
+              d.toLocaleDateString("ar-EG", { month: "short", day: "numeric" })
+            );
           }
           break;
-        case '90_days':
+        case "90_days":
           numPoints = 90;
           for (let i = 0; i < numPoints; i++) {
             const d = new Date(today);
             d.setDate(today.getDate() - (numPoints - 1 - i));
-            categories.push(d.toLocaleDateString('ar-EG', { month: 'short', day: 'numeric' }));
+            categories.push(
+              d.toLocaleDateString("ar-EG", { month: "short", day: "numeric" })
+            );
           }
           break;
         default:
           numPoints = 1;
-          categories.push(today.toLocaleDateString('ar-EG', { day: 'numeric', month: 'numeric' }));
+          categories.push(
+            today.toLocaleDateString("ar-EG", {
+              day: "numeric",
+              month: "numeric",
+            })
+          );
       }
       return categories;
     },
     getExchangeRateData(from, to, range) {
-        const key = `${from}_${to}`;
-        const reverseKey = `${to}_${from}`;
+      const key = `${from}_${to}`;
+      const reverseKey = `${to}_${from}`;
 
-        if (DUMMY_HISTORICAL_RATES[key] && DUMMY_HISTORICAL_RATES[key][range]) {
-            return DUMMY_HISTORICAL_RATES[key][range];
-        }
+      if (DUMMY_HISTORICAL_RATES[key] && DUMMY_HISTORICAL_RATES[key][range]) {
+        return DUMMY_HISTORICAL_RATES[key][range];
+      }
 
-        if (DUMMY_HISTORICAL_RATES[reverseKey] && DUMMY_HISTORICAL_RATES[reverseKey][range]) {
-            return DUMMY_HISTORICAL_RATES[reverseKey][range].map(rate => 1 / rate);
-        }
+      if (
+        DUMMY_HISTORICAL_RATES[reverseKey] &&
+        DUMMY_HISTORICAL_RATES[reverseKey][range]
+      ) {
+        return DUMMY_HISTORICAL_RATES[reverseKey][range].map(
+          (rate) => 1 / rate
+        );
+      }
 
-        const numDataPoints = this.generateChartCategories(range).length;
-        const avgRate = 0.5; 
-        return Array.from({ length: numDataPoints }, () => avgRate + (Math.random() - 0.5) * 0.01).map(val => parseFloat(val.toFixed(4)));
+      const numDataPoints = this.generateChartCategories(range).length;
+      const avgRate = 0.5;
+      return Array.from(
+        { length: numDataPoints },
+        () => avgRate + (Math.random() - 0.5) * 0.01
+      ).map((val) => parseFloat(val.toFixed(4)));
     },
     updateChartData() {
-        const labels = this.generateChartCategories(this.selectedTimeRange);
-        const rates = this.getExchangeRateData(this.fromCurrency, this.toCurrency, this.selectedTimeRange);
+      const labels = this.generateChartCategories(this.selectedTimeRange);
+      const rates = this.getExchangeRateData(
+        this.fromCurrency,
+        this.toCurrency,
+        this.selectedTimeRange
+      );
 
-        this.chartData = {
-            labels: labels,
-            datasets: [
-                {
-                    label: `${this.getSelectedCurrencyName(this.fromCurrency)} مقابل ${this.getSelectedCurrencyName(this.toCurrency)}`,
-                    backgroundColor: 'rgba(10, 175, 225, 0.3)',
-                    borderColor: '#0aafe1', 
-                    pointBackgroundColor: '#0aafe1',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#0aafe1',
-                    data: rates,
-                    tension: 0.3, 
-                    fill: true, 
-                },
-            ],
-        };
-        this.chartKey++; 
+      this.chartData = {
+        labels: labels,
+        datasets: [
+          {
+            label: `${this.getSelectedCurrencyName(
+              this.fromCurrency
+            )} مقابل ${this.getSelectedCurrencyName(this.toCurrency)}`,
+            backgroundColor: "rgba(10, 175, 225, 0.3)",
+            borderColor: "#0aafe1",
+            pointBackgroundColor: "#0aafe1",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "#0aafe1",
+            data: rates,
+            tension: 0.3,
+            fill: true,
+          },
+        ],
+      };
+      this.chartKey++;
     },
   },
 };
@@ -367,7 +509,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  flex-wrap: wrap-reverse; 
+  flex-wrap: wrap-reverse;
   gap: 20px;
 }
 
@@ -376,9 +518,9 @@ export default {
   background-color: #f0f2f5;
   border-radius: 10px;
   overflow: hidden;
-  flex-grow: 1; 
-  max-width: 400px; 
-  margin-left: auto; 
+  flex-grow: 1;
+  max-width: 400px;
+  margin-left: auto;
 }
 
 .time-range-buttons button {
@@ -395,11 +537,7 @@ export default {
 }
 
 .time-range-buttons button.active {
-  background-image: linear-gradient(
-    to left,
-    #4148b4,
-    #2c1969
-  ); 
+  background-image: linear-gradient(to left, #4148b4, #2c1969);
   color: #fff;
   font-weight: 600;
 }
@@ -412,8 +550,8 @@ export default {
   display: flex;
   align-items: center;
   gap: 15px;
-  flex-grow: 1; 
-  justify-content: flex-end; 
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
 .currency-select-wrapper {
@@ -424,7 +562,7 @@ export default {
   height: 45px;
   display: flex;
   align-items: center;
-  width: 180px; 
+  width: 180px;
 }
 
 .currency-select-wrapper select {
@@ -435,15 +573,15 @@ export default {
   height: 100%;
   opacity: 0;
   cursor: pointer;
-  z-index: 2; 
+  z-index: 2;
 }
 
 .selected-currency-display {
   position: absolute;
   top: 0;
-  right: 0; 
+  right: 0;
   height: 100%;
-  width: 100%; 
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -451,10 +589,10 @@ export default {
   color: #333;
   font-size: 15px;
   font-weight: 600;
-  pointer-events: none; 
-  background-color: transparent; 
+  pointer-events: none;
+  background-color: transparent;
   border-radius: 10px;
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 .currency-flag {
@@ -462,7 +600,7 @@ export default {
   height: 16px;
   border-radius: 2px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-  margin-right: 5px; 
+  margin-right: 5px;
 }
 
 .compare-text {
@@ -473,7 +611,7 @@ export default {
 
 .chart-container {
   width: 100%;
-  height: 350px; 
+  height: 350px;
   background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;
@@ -489,17 +627,17 @@ export default {
   .time-range-buttons {
     width: 100%;
     max-width: none;
-    margin: 0; 
+    margin: 0;
   }
   .currency-selectors {
     flex-direction: column;
     gap: 15px;
     width: 100%;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
   }
   .currency-select-wrapper {
-    width: 80%; 
+    width: 80%;
     max-width: 250px;
   }
   .section-title {
@@ -516,9 +654,9 @@ export default {
     font-size: 24px;
   }
   .time-range-buttons {
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 5px; 
+    gap: 5px;
   }
   .time-range-buttons button {
     font-size: 14px;
@@ -537,7 +675,7 @@ export default {
   }
   .chart-container {
     padding: 10px;
-    height: 300px; 
+    height: 300px;
   }
 }
 </style>

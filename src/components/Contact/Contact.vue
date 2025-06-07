@@ -1,20 +1,44 @@
 <template>
-  <section class="contact-section">
+  <section class="contact-section" id="contact">
     <div class="contact-content-wrapper">
-        <div class="form-container">
+      <div class="form-container">
         <h2 class="section-title">تواصل معنا</h2>
         <form @submit.prevent="submitForm" class="contact-form">
           <div class="form-group">
-            <input type="text" id="name" v-model="form.name" placeholder="الاسم" required />
+            <input
+              type="text"
+              id="name"
+              v-model="form.name"
+              placeholder="الاسم"
+              required
+            />
           </div>
           <div class="form-group">
-            <input type="email" id="email" v-model="form.email" placeholder="البريد الإلكتروني" required />
+            <input
+              type="email"
+              id="email"
+              v-model="form.email"
+              placeholder="البريد الإلكتروني"
+              required
+            />
           </div>
           <div class="form-group">
-            <input type="tel" id="phone" v-model="form.phone" placeholder="رقم الجوال" required />
+            <input
+              type="tel"
+              id="phone"
+              v-model="form.phone"
+              placeholder="رقم الجوال"
+              required
+            />
           </div>
           <div class="form-group">
-            <textarea id="message" v-model="form.message" placeholder="اكتب رسالتك" rows="5" required></textarea>
+            <textarea
+              id="message"
+              v-model="form.message"
+              placeholder="اكتب رسالتك"
+              rows="5"
+              required
+            ></textarea>
           </div>
           <button type="submit" class="submit-button">أرسل رسالتك</button>
         </form>
@@ -35,45 +59,45 @@
         </div>
       </div>
       <div class="map-container">
-        <img src="../../assets/Images/map.png" alt="World Map" class="world-map-image" />
+        <img
+          src="../../assets/Images/map.png"
+          alt="World Map"
+          class="world-map-image"
+        />
       </div>
-
-      
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const form = ref({
-  name: '',
-  email: '',
-  phone: '',
-  message: ''
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
 });
 
 const submitForm = () => {
   // هنا يمكنك إضافة منطق إرسال النموذج، مثل استدعاء API
-  console.log('Form Submitted:', form.value);
-  alert('تم إرسال رسالتك بنجاح! (هذا مثال فقط)');
+  console.log("Form Submitted:", form.value);
+  alert("تم إرسال رسالتك بنجاح! (هذا مثال فقط)");
   // يمكنك مسح الحقول بعد الإرسال
   form.value = {
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   };
 };
 </script>
 
 <style scoped>
-
-
 .contact-section {
-  direction: rtl; 
-  font-family: 'Inter', sans-serif; 
-  background-color: #f0f2f5; 
+  direction: rtl;
+  font-family: "Inter", sans-serif;
+  background-color: #f0f2f5;
   padding: 80px var(--app-padding-x);
   display: flex;
   justify-content: center;
@@ -82,30 +106,30 @@ const submitForm = () => {
 
 .contact-content-wrapper {
   display: flex;
-  flex-direction: row; 
-  background-color: #fff; 
+  flex-direction: row;
+  background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   max-width: var(--app-max-width);
   width: 100%;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .map-container {
-  flex: 1; 
-  background-color: #ffff; 
+  flex: 1;
+  background-color: #ffff;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px;
-  min-height: 500px; 
+  min-height: 500px;
 }
 
 .world-map-image {
   width: 100%;
   height: auto;
-  opacity: 0.7; 
-  max-width: 500px; 
+  opacity: 0.7;
+  max-width: 500px;
 }
 
 .form-container {
@@ -126,7 +150,7 @@ const submitForm = () => {
 
 .contact-form {
   width: 100%;
-  max-width: 450px; 
+  max-width: 450px;
   margin-bottom: 30px;
 }
 
@@ -141,9 +165,9 @@ const submitForm = () => {
   border: 1px solid #ddd;
   border-radius: 10px;
   font-size: 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #333;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -154,7 +178,7 @@ const submitForm = () => {
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #0AAFE1;
+  border-color: #0aafe1;
   box-shadow: 0 0 0 3px rgba(10, 175, 225, 0.2);
   outline: none;
 }
@@ -174,13 +198,13 @@ const submitForm = () => {
 }
 
 .submit-button:hover {
-  background-color: #4148b4; 
+  background-color: #4148b4;
   transform: translateY(-2px);
 }
 
 .contact-info {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
   width: 100%;
@@ -194,13 +218,13 @@ const submitForm = () => {
   color: #555;
   font-size: 15px;
   line-height: 1.5;
-  flex: 1 1 calc(33% - 20px); 
-  min-width: 120px; 
+  flex: 1 1 calc(33% - 20px);
+  min-width: 120px;
 }
 
 .info-item i {
   font-size: 24px;
-  color: #0AAFE1; 
+  color: #0aafe1;
   margin-bottom: 8px;
 }
 
@@ -211,11 +235,11 @@ const submitForm = () => {
 
 @media (max-width: 992px) {
   .contact-content-wrapper {
-    flex-direction: column; 
+    flex-direction: column;
   }
 
   .map-container {
-    min-height: 300px; 
+    min-height: 300px;
     padding: 20px;
   }
 
@@ -244,7 +268,7 @@ const submitForm = () => {
   }
 
   .contact-info {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 20px;
   }
 }
@@ -276,7 +300,7 @@ const submitForm = () => {
 
   .info-item {
     font-size: 14px;
-    flex: 1 1 100%; 
+    flex: 1 1 100%;
   }
 
   .info-item i {
